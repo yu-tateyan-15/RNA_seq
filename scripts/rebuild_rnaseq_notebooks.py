@@ -243,7 +243,7 @@ def nb_00_project_setup_metadata() -> list[dict]:
             1 readは必ず4行である。
 
             $$
-            1\ \mathrm{read} = \mathrm{header} + \mathrm{sequence} + \mathrm{separator} + \mathrm{quality}
+            1\\ \\mathrm{read} = \\mathrm{header} + \\mathrm{sequence} + \\mathrm{separator} + \\mathrm{quality}
             $$
 
             - 1行目: read名。`@` で始まる。
@@ -465,7 +465,7 @@ def nb_00_project_setup_metadata() -> list[dict]:
                 "samples_path": "metadata/samples.tsv",  # Setting to the sample metadata table.
                 "contrasts_path": "metadata/contrasts.tsv",  # Setting to the DESeq2 group comparison table.
                 "organism": "human",  # Setting to the organism assumption used for reference and enrichment.
-                "gene_id_type": "SYMBOL",  # Setting to the gene ID type used by clusterProfiler.
+                "gene_id_type": "ENSEMBL",  # Setting to the gene ID type used by clusterProfiler. GENCODE gene IDs include version suffixes, which the enrichment script strips before lookup.
                 "reference": {
                     "gencode_release": "49",  # Setting to the GENCODE release used for all reference files.
                     "transcript_fasta": "reference/gencode_grch38/gencode.v49.transcripts.fa.gz",  # Setting to the transcript FASTA used to build the Salmon index.
@@ -764,7 +764,7 @@ def nb_00b_reference_setup() -> list[dict]:
             - `Name`: Salmonの `quant.sf` に出るtranscript ID
             - `gene_id`: そのtranscriptをgene単位にまとめるためのID
 
-            ここでは後のclusterProfilerを分かりやすくするため、`gene_id` 列には基本的に遺伝子シンボルを入れる。もし将来Ensembl IDで解析したい場合は、`gene_id_type` を `ENSEMBL` に変える必要がある。
+            このworkflowでは、count matrixとDESeq2結果の `gene_id` にGENCODE由来のEnsembl gene ID（例: `ENSG000001234.5`）を使う。clusterProfilerへ渡すときは `gene_id_type = ENSEMBL` とし、Rスクリプト側で末尾のversion番号（`.5` など）を外して照合する。
             """),
         code(
             r'''
@@ -827,7 +827,7 @@ def nb_00b_reference_setup() -> list[dict]:
             if RUN_UPDATE_CONFIG:
                 config = json.loads(CONFIG_PATH.read_text(encoding="utf-8"))
                 config["organism"] = "human"
-                config["gene_id_type"] = "SYMBOL"
+                config["gene_id_type"] = "ENSEMBL"
                 config["reference"] = {
                     "gencode_release": GENCODE_RELEASE,
                     "transcript_fasta": str(TRANSCRIPT_FASTA_PATH.relative_to(PROJECT_DIR)),
@@ -1953,12 +1953,13 @@ def nb_05_interpretation() -> list[dict]:
 
             これは「DEGがどんな機能に偏っているか」を見る解析である。
 
-            `gene_id_type` が `SYMBOL` の場合、DEGの `gene_id` は遺伝子シンボルである必要がある。このworkflowの `tx2gene.tsv` はその前提で作っている。
+            このworkflowのDESeq2結果では、`gene_id` にGENCODE由来のEnsembl gene ID（例: `ENSG000001234.5`）を使う。そのため `gene_id_type` は `ENSEMBL` にする。clusterProfilerへ渡す直前に、Rスクリプト側で末尾のversion番号（`.5` など）を外して照合する。
             """),
         code(
             r'''
             RUN_CLUSTERPROFILER = False
             ENRICHMENT_SCRIPT = PROJECT_DIR / "scripts" / "clusterprofiler_enrichment.R"
+            CONFIG = json.loads((PROJECT_DIR / "config" / "analysis_config.json").read_text(encoding="utf-8"))
 
             if RUN_CLUSTERPROFILER:
                 rscript = shutil.which("Rscript")
@@ -2292,7 +2293,7 @@ def write_workflow_docs() -> None:
         ## biological assumptions
 
         - `organism`: Setting to the organism assumption used for reference and enrichment. Current assumption: `human`.
-        - `gene_id_type`: Setting to the gene identifier type expected by clusterProfiler. Current workflow uses `SYMBOL`.
+        - `gene_id_type`: Setting to the gene identifier type expected by clusterProfiler. Current workflow uses `ENSEMBL` because DESeq2 outputs GENCODE Ensembl gene IDs.
 
         ## reference
 
@@ -2349,7 +2350,7 @@ def write_workflow_docs() -> None:
           "samples_path": "metadata/samples.tsv",
           "contrasts_path": "metadata/contrasts.tsv",
           "organism": "human",
-          "gene_id_type": "SYMBOL",
+          "gene_id_type": "ENSEMBL",
           "reference": {
             "gencode_release": "49",
             "transcript_fasta": "reference/gencode_grch38/gencode.v49.transcripts.fa.gz",

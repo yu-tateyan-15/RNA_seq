@@ -4,7 +4,7 @@
   "samples_path": "metadata/samples.tsv",
   "contrasts_path": "metadata/contrasts.tsv",
   "organism": "human",
-  "gene_id_type": "SYMBOL",
+  "gene_id_type": "ENSEMBL",
   "reference": {
     "gencode_release": "49",
     "transcript_fasta": "reference/gencode_grch38/gencode.v49.transcripts.fa.gz",

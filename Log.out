@@ -1,0 +1,23 @@
+STAR version=                 2.7.11b
+STAR compilation time,server,dir= :/opt/mambaforge/envs/bioconda/conda-bld/star_1763121632674/work/source
+##### Command Line:
+STAR --parametersFiles -
+##### Initial USER parameters from Command Line:
+parametersFiles                   -   
+###### All USER parameters from Command Line:
+parametersFiles               -        ~RE-DEFINED
+##### Finished reading parameters from all sources
+
+##### Final user re-defined parameters-----------------:
+parametersFiles                   -   
+
+-------------------------------
+##### Final effective command line:
+STAR
+----------------------------------------
+
+Number of fastq files for each mate = 1
+
+EXITING because of fatal input ERROR: could not open readFilesIn=Read1
+
+May 23 00:36:59 ...... FATAL ERROR, exiting
