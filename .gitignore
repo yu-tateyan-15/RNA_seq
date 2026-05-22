@@ -1,0 +1,64 @@
+# =============================================================================
+# .gitignore for RNA_seq project
+# Tracked: notebooks/ and config/ only
+# =============================================================================
+
+# --- Ignore everything by default ---
+*
+
+# --- Exceptions: always allow Git internals ---
+!.gitignore
+!.gitattributes
+
+# --- Allow notebooks/ directory and all its contents ---
+!notebooks/
+!notebooks/**
+
+# --- Allow config/ directory and all its contents ---
+!config/
+!config/**
+
+# --- macOS junk files (exclude even inside tracked dirs) ---
+.DS_Store
+**/.DS_Store
+
+# --- Python cache (exclude even inside tracked dirs) ---
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Jupyter checkpoint files ---
+**/.ipynb_checkpoints/
+
+# --- Large binary / data files (safety net) ---
+*.fa
+*.fa.gz
+*.fq
+*.fq.gz
+*.fastq
+*.fastq.gz
+*.bam
+*.bai
+*.gtf
+*.gtf.gz
+*.vcf
+*.vcf.gz
+*.bed
+*.sf
+*.rds
+*.RData
+
+# --- Results / reference / raw data / temp (already ignored by * above) ---
+results/
+reference/
+raw_data/
+_STARtmp/
+metadata/
+scripts/
+old/
+outputs/
+report/
+RNA-seq_Source/
+.cache/
