@@ -1,0 +1,43 @@
+{
+  "project_dir": "/Users/yusuke_tateishi/Documents/RNA_seq",
+  "raw_data_dir": "raw_data",
+  "samples_path": "metadata/samples.tsv",
+  "contrasts_path": "metadata/contrasts.tsv",
+  "organism": "human",
+  "gene_id_type": "SYMBOL",
+  "reference": {
+    "gencode_release": "49",
+    "transcript_fasta": "reference/gencode_grch38/gencode.v49.transcripts.fa.gz",
+    "salmon_index": "reference/gencode_grch38/salmon_index",
+    "tx2gene_path": "reference/gencode_grch38/tx2gene.tsv",
+    "gtf_path": "reference/gencode_grch38/gencode.v49.annotation.gtf.gz",
+    "genome_fasta": ""
+  },
+  "quantification": {
+    "method": "salmon",
+    "threads": 8,
+    "salmon": {
+      "library_type": "A",
+      "validate_mappings": true
+    },
+    "star": {
+      "read_length": 150,
+      "sjdb_overhang": 149,
+      "featurecounts_strandness": 0
+    },
+    "trinity": {
+      "max_memory": "10G",
+      "seq_type": "fq",
+      "ss_lib_type": "RF"
+    }
+  },
+  "differential_expression": {
+    "count_matrix_path": "results/counts/gene_counts.tsv",
+    "design_formula": "~ condition",
+    "reference_condition": "Non",
+    "min_count": 10,
+    "min_samples": 2,
+    "alpha": 0.05,
+    "lfc_threshold": 1.0
+  }
+}

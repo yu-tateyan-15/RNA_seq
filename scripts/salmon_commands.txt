@@ -1,0 +1,17 @@
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/NAC_S2_2h_1/NAC_S2_2h_1_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/NAC_S2_2h_1/NAC_S2_2h_1_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/NAC_S2_2h_1
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/NAC_S2_2h_2/NAC_S2_2h_2_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/NAC_S2_2h_2/NAC_S2_2h_2_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/NAC_S2_2h_2
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/NAC_S2_2h_3/NAC_S2_2h_3_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/NAC_S2_2h_3/NAC_S2_2h_3_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/NAC_S2_2h_3
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Non_1/Non_1_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Non_1/Non_1_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/Non_1
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Non_2/Non_2_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Non_2/Non_2_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/Non_2
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Non_3/Non_3_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Non_3/Non_3_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/Non_3
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Oxi_2h_1/Oxi_2h_1_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Oxi_2h_1/Oxi_2h_1_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/Oxi_2h_1
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Oxi_2h_2/Oxi_2h_2_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Oxi_2h_2/Oxi_2h_2_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/Oxi_2h_2
+
+salmon quant -i /Users/yusuke_tateishi/Documents/RNA_seq/reference/gencode_grch38/salmon_index -l A -1 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Oxi_2h_3/Oxi_2h_3_1.fq.gz -2 /Users/yusuke_tateishi/Documents/RNA_seq/raw_data/Oxi_2h_3/Oxi_2h_3_2.fq.gz -p 8 --validateMappings -o /Users/yusuke_tateishi/Documents/RNA_seq/results/quant/salmon/Oxi_2h_3

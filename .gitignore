@@ -4,7 +4,9 @@
 # =============================================================================
 
 # --- Ignore everything by default ---
-*
+.gitignore
+package.json
+*README*
 
 # --- Exceptions: always allow Git internals ---
 !.gitignore
@@ -49,6 +51,7 @@ __pycache__/
 *.sf
 *.rds
 *.RData
+*pptx
 
 # --- Results / reference / raw data / temp (already ignored by * above) ---
 results/
@@ -56,9 +59,6 @@ reference/
 raw_data/
 _STARtmp/
 metadata/
-scripts/
 old/
-outputs/
 report/
-RNA-seq_Source/
 .cache/
